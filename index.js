@@ -35,6 +35,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   2. Which of the two uses a closure? How can you tell?
 
      Counter1() has closure on the counter() function since it reaches outside itself to access the count variable. 
+     Counter2() uses a closure as well since it reaches outside to access the count variable.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -90,12 +91,12 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inning, numInnings){
+function finalScore(inningcb, numInnings){
   let homeScore = 0;
   let awayScore = 0;
   for (let i = 0; i < numInnings; i++) {
-    homeScore = homeScore + inning(),
-    awayScore = awayScore + inning()
+    homeScore = homeScore + inningcb(),
+    awayScore = awayScore + inningcb()
     }
     return {
       Home: homeScore,
@@ -110,10 +111,10 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(inning) {
+function getInningScore(inningcb) {
     return {
-    Home: inning(),
-    Away: inning()
+    Home: inningcb(),
+    Away: inningcb()
   }
 }
 
@@ -160,9 +161,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inning, numInnings) {
-  let inningScore = [];
-}
+function scoreboard(getInningScoreCB, inningCB, numInningsCB) {
+  let scores = [];
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < numInningsCB; i++) {
+    let inningScore = getInningScoreCB(inningCB);
+    home += inningScore.Home;
+    away += inningScore.Away;
+    scores.push(`Inning ${i+1} : Away ${inningScore.Away} - Home ${inningScore.Home}`);
+  }
+  if (home === away){
+    scores.push(`This game will require extra innings: ${away} - ${home}`);
+  } else {
+    scores.push(`Final Score: Away ${away} - Home ${home}`);
+  }
+  return scores;
+  }
+
+
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
