@@ -93,11 +93,26 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, numInnings){
-  return {
-    Home: inning(),
-    Away: inning()
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < numInnings; i++) {
+    homeScore = homeScore + inning(),
+    awayScore = awayScore + inning()
+    }
+    return {
+      Home: homeScore,
+      Away: awayScore
+    }
   }
-}
+
+console.log(finalScore(inning, 9));
+
+// function finalScore(inning, numInnings){
+//   return {
+//     Home: inning(),
+//     Away: inning()
+//   }
+// }
 
 console.log(finalScore(inning, 9));
 
