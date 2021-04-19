@@ -29,10 +29,21 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+    Counter1 is a nested function, with counter() nested inside counterMaker(). The count variable is declared inside of counterMaker().
+    Counter 2 doesn't have nesting. The count variable is declared outside of counter2().
+
   2. Which of the two uses a closure? How can you tell?
+
+    Both use closure. 
+
+    Counter1() has closure on the counter() function since it reaches outside itself to access the count variable. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     
+
+
 */
 
 // counter1 code

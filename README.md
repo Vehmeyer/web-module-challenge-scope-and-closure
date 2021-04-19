@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  Closure is when a nested inner function reaches outward to access something from the scope of an outer function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,15 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  The inner function reaches out to personalDice to access the name. This function is nested inside the personalDice function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The string returns "Dan rolled a"... both times it's called. The number (from ${newRoll}) changes each time it's called.
+
 c. What is the lexical scope of `newRoll`? 
+  newRoll is block scoped withing the nested function.
 
 
 ### Task 3 - Stretch Goals
