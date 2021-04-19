@@ -34,9 +34,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
   2. Which of the two uses a closure? How can you tell?
 
-    Both use closure. 
-
-    Counter1() has closure on the counter() function since it reaches outside itself to access the count variable. 
+     Counter1() has closure on the counter() function since it reaches outside itself to access the count variable. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -107,27 +105,19 @@ function finalScore(inning, numInnings){
 
 console.log(finalScore(inning, 9));
 
-// function finalScore(inning, numInnings){
-//   return {
-//     Home: inning(),
-//     Away: inning()
-//   }
-// }
-
-console.log(finalScore(inning, 9));
-
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(inning) {
-  return {
+    return {
     Home: inning(),
     Away: inning()
   }
 }
- 
+
+console.log(getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
